@@ -1,0 +1,9 @@
+dev:
+	minimum:11
+	maximum:111
+qa:
+	minimum:99
+	maximum:999
+prod:
+	minimum:100
+	maximum:1000	

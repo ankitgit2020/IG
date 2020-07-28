@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: movie-info-service
+        uri: lb://movie-info-service/
+        predicates:
+        - Path=/movies/**
+      - id: rating-data-service
+        uri: lb://rating-data-service/
+        predicates:
+        - Path=/ratingdata/**

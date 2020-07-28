@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.poc.cloudgateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-//@SpringBootTest
-class SbRestDemoApplicationTests {
+@SpringBootTest
+class CloudGatewayServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

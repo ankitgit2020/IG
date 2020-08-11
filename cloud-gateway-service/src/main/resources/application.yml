@@ -8,8 +8,6 @@ spring:
         - Path=/movies/**
       - id: rating-data-service
         uri: lb://rating-data-service/
-        filters:
-        - PreOauth2SSOGatewayFilter
         predicates:
         - Path=/ratingdata/**
 security:

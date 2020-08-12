@@ -1,15 +1,25 @@
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: movie-info-service
-        uri: lb://movie-info-service/
-        predicates:
-        - Path=/movies/**
-      - id: rating-data-service
-        uri: lb://rating-data-service/
-        predicates:
-        - Path=/ratingdata/**
+#spring:
+#  cloud:
+#   gateway:
+#    routes:
+#      - id: movie-info-service
+#        uri: lb://movie-info-service/
+#        predicates:
+#        - Path=/movies/**
+#      - id: rating-data-service
+#        uri: lb://rating-data-service/
+#        predicates:
+#        - Path=/ratingdata/**
+zuul:
+  routes:
+    movie-info-service:
+      path: /movies/**
+      service-id: movie-info-service
+      strip-prefix: false
+    rating-data-service:
+      service-id: rating-data-service
+      path: /ratingdata/**
+      strip-prefix: false     
 security:
   oauth2:
     client:

@@ -11,14 +11,17 @@
 #        predicates:
 #        - Path=/ratingdata/**
 zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
   routes:
     movie-info-service:
       path: /movies/**
       service-id: movie-info-service
       strip-prefix: false
+      sensitiveHeaders: Cookie,Set-Cookie
     rating-data-service:
       service-id: rating-data-service
       path: /ratingdata/**
+      sensitiveHeaders: Cookie,Set-Cookie
       strip-prefix: false     
 security:
   oauth2:
@@ -29,6 +32,7 @@ security:
        userAuthorizationUri: https://github.com/login/oauth/authorize
        clientAuthenticationScheme: form
        tokenName: oauth_token
+       responseType: code
     resource:
       user-info-uri: https://api.github.com/user
       prefer-token-info: true      
